@@ -38,9 +38,6 @@ main {
 }
 
 footer {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-
     button {
         border-radius: 25px;
         border: 1px solid #586E77;
@@ -52,11 +49,46 @@ footer {
         transition: all .4s ease;
         -webkit-transition: all .4s ease;
         font-family: 'Helvetica Neue', 'Inter', sans-serif;
+        margin: 2rem;
 
         &:hover {
             border: 1px solid #586E77;
             background-color: #586E77;
             color: white;
+        }
+    }
+
+    .legal {
+        border-top: 1px solid #EEF1F2;
+        padding: 1rem;
+        font-weight: 300;
+        font-size: 10px;
+        margin: 0;
+        font-weight: 300;
+        padding: 1rem;
+        text-align: left;
+
+        a {
+            font-weight: 300;
+            color: #586E77;
+            text-decoration: none;
+            border-right: 1px solid #586e779c;
+            margin-right: 5px;
+            padding-right: 6px;
+
+            &:last-child {
+                border: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        p {
+            margin: 0;
         }
     }
 }

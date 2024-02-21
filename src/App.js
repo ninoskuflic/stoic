@@ -50,10 +50,17 @@ export default function App() {
           </main >
           <footer>
             <button onClick={fetchRandomQuote}>New Quote</button>
+            <div className='legal'>
+              <div>
+                <a href='https://go.skuflic.com/terms' target='_blank' rel='noreferrer'>Terms of Use</a>
+                <a href='https://go.skuflic.com/servicesagreement' target='_blank' rel='noreferrer'>Services Agreement</a>
+                <a href='https://go.skuflic.com/privacy' target='_blank' rel='noreferrer'>Privacy Policy</a>
+              </div>
+              <p>TM and Copyright &copy; {new Date().getFullYear()} Skuflic.com. All rights reserved. Quotes provided are AI-generated for inspirational purposes only.</p>
+            </div>
           </footer>
         </>
       )}
-
     </>
   );
 }

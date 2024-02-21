@@ -1,11 +1,13 @@
 {
-  "name": "Stoic",
-  "version": "0.0.0.1",
+  "name": "Stoic Quotes",
+  "version": "1.0.0",
   "manifest_version": 3,
-  "description": "",
+  "description": "Stoic Quotes: Daily wisdom from Aurelius, Seneca, Epictetus. Reflect daily.",
   "icons": {
-    "16": "assets/icons/icon-16x16.png",
-    "32": "assets/icons/icon-32x32.png"
+    "16": "assets/icons/16x16.png",
+    "32": "assets/icons/32x32.png",
+    "46": "assets/icons/46x46.png",
+    "128": "assets/icons/128x128.png"
   },
   "action": {
     "default_popup": "index.html"
@@ -13,20 +15,5 @@
   "host_permissions": [
     "http://*/*",
     "https://*/*"
-  ],
-  "permissions": [
-    "activeTab"
-  ],
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self';",
-    "sandbox": "sandbox allow-scripts allow-forms allow-modals",
-    "script-src": [
-      "'self'",
-      "'unsafe-eval'"
-    ],
-    "object-src": [
-      "'self'",
-      "'unsafe-eval'"
-    ]
-  }
+  ]
 }
