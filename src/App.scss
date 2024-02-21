@@ -1,78 +1,62 @@
+$primary: #ced4da;
+
 body {
     margin: 0;
     padding: 0;
     text-align: center;
-    color: #586E77;
-    font-family: 'Helvetica Neue', 'Inter', sans-serif;
+    color: white;
+    font-family: 'GT Walsheim Pro', sans-serif;
     min-width: 30rem;
-}
-
-header {
-    background-color: #C9D3D6;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    h1 {
-        opacity: .6;
-        font-size: 1.3rem;
-        font-weight: 500;
-    }
+    background-color: #0B0B0F;
+    text-align: left;
 }
 
 main {
     h1 {
-        font-weight: 400;
-        font-family: 'Times New Roman', serif;
+        font-weight: 100;
+        font-size: 30px;
+        margin-right: 1rem;
     }
 
     p {
         font-style: italic;
-        font-size: .9rem;
+        font-size: 12px;
+        margin: 0;
     }
 
-    border-bottom: 1px solid #EEF1F2;
-    padding: 1rem;
     font-weight: 100;
+    padding: 1rem;
 }
 
 footer {
     button {
-        border-radius: 25px;
-        border: 1px solid #586E77;
         background-color: transparent;
-        padding: 10px;
-        color: #586E77;
+        border: 0px;
+        color: $primary;
         cursor: pointer;
-        text-transform: uppercase;
-        transition: all .4s ease;
-        -webkit-transition: all .4s ease;
-        font-family: 'Helvetica Neue', 'Inter', sans-serif;
-        margin: 2rem;
-
-        &:hover {
-            border: 1px solid #586E77;
-            background-color: #586E77;
-            color: white;
-        }
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 10px 10px 0px 0px;
     }
 
     .legal {
-        border-top: 1px solid #EEF1F2;
+        border-top: .0313rem solid hsla(330, 9%, 96%, .102);
         padding: 1rem;
-        font-weight: 300;
+
         font-size: 10px;
         margin: 0;
-        font-weight: 300;
         padding: 1rem;
         text-align: left;
+        opacity: .5;
+        font-family: 'Helvetica Neue';
+        font-weight: 200;
 
         a {
-            font-weight: 300;
-            color: #586E77;
+            font-weight: 200;
+            color: $primary;
             text-decoration: none;
-            border-right: 1px solid #586e779c;
+            border-right: .0313rem solid hsla(330, 9%, 96%, .102);
             margin-right: 5px;
             padding-right: 6px;
 
@@ -89,6 +73,7 @@ footer {
 
         p {
             margin: 0;
+            color: $primary;
         }
     }
 }
@@ -101,4 +86,30 @@ footer {
     align-items: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
+}
+
+#react-chrome-app {
+    // background-image: linear-gradient(0deg, #0b0c0f 0, #0000), url(https://cdn.thecollector.com/wp-content/uploads/2022/12/zeno-bust.jpg);
+    // background-size: cover;
+    // background-repeat: no-repeat;
+}
+
+.error {
+    text-align: center;
+    min-height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    p {
+        font-weight: 100;
+        margin: 0rem 2rem 0rem 2rem;
+    }
+
+    h1 {
+        font-weight: 400;
+        font-size: 2.5rem;
+        margin: 10px;
+    }
 }

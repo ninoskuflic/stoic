@@ -38,18 +38,22 @@ export default function App() {
       {loading ? (
         <div className='loading'><img src={Loading} alt='Loading' /></div>
       ) : error ? (
-        <p>Error: {error.message}</p>
+        <div className='error'>
+          <h1>Whoopsy daisy</h1>
+          <p>An unexpected error occurred, please contact support and provide this error message — {error.message.toLowerCase()}.</p>
+        </div>
       ) : (
         <>
-          <header>
-            <h1>STOIC QUOTES</h1>
-          </header>
           <main>
-            <h1>"{data?.quote}"</h1>
+            <h1>'{data?.quote}'</h1>
             <p>— {data?.author}, {data?.year}</p>
           </main >
           <footer>
-            <button onClick={fetchRandomQuote}>New Quote</button>
+            <button onClick={fetchRandomQuote} alt='refresh'>
+              <span className='material-symbols-outlined'>
+                refresh
+              </span>
+            </button>
             <div className='legal'>
               <div>
                 <a href='https://go.skuflic.com/terms' target='_blank' rel='noreferrer'>Terms of Use</a>
