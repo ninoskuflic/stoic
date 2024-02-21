@@ -56,7 +56,7 @@ footer {
             font-weight: 200;
             color: $primary;
             text-decoration: none;
-            border-right: .0313rem solid hsla(330, 9%, 96%, .102);
+            border-right: .0313rem solid #ced4da;
             margin-right: 5px;
             padding-right: 6px;
 
@@ -79,19 +79,17 @@ footer {
 }
 
 .loading {
-    width: 100vw;
-    height: 100vh;
+    height: 210px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
 }
 
 #react-chrome-app {
-    // background-image: linear-gradient(0deg, #0b0c0f 0, #0000), url(https://cdn.thecollector.com/wp-content/uploads/2022/12/zeno-bust.jpg);
-    // background-size: cover;
+    // background-image: linear-gradient(0deg, #0b0c0f 0, #0000), url('https://images.aeonmedia.co/images/a370f39a-f14f-4608-9ff5-660e1311cac4/The-Death-of-Socrates-MAIN.jpg');
     // background-repeat: no-repeat;
+    // background-position: 50%;
+    // background-size: cover;
 }
 
 .error {
