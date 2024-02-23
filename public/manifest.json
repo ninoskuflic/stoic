@@ -11,13 +11,9 @@
   "action": {
     "default_popup": "index.html"
   },
-  "host_permissions": [
-    "http://*/*",
-    "https://*/*"
-  ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "stoic-quotes@skuflic.com"
+      "id": "stoic@skuflic.com"
     }
   }
 }
