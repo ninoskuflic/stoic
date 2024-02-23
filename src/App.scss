@@ -5,23 +5,17 @@ body {
     padding: 0;
     text-align: center;
     color: white;
-    font-family: 'GT Walsheim Pro', sans-serif;
+    font-family: 'Lato', sans-serif;
     min-width: 30rem;
     background-color: #0B0B0F;
     text-align: left;
-    // background-image: linear-gradient(0deg, #0b0c0f 0, #0000), url('https://images.aeonmedia.co/images/a370f39a-f14f-4608-9ff5-660e1311cac4/The-Death-of-Socrates-MAIN.jpg');
-    // background-repeat: no-repeat;
-    // background-position: 50%;
-    // background-size: cover;
 }
 
 main {
-    .next-qoute {
-        opacity: .5;
-    }
+    padding: 1rem;
 
     h1 {
-        font-weight: 100;
+        font-weight: 300;
         font-size: 30px;
         margin-right: 1rem;
     }
@@ -30,15 +24,11 @@ main {
         font-style: italic;
         font-size: 12px;
         margin: 0;
+        font-weight: 100;
     }
-
-    font-weight: 100;
-    padding: 1rem;
 }
 
 footer {
-    opacity: .5;
-
     .legal {
         border-top: .0313rem solid hsla(330, 9%, 96%, .102);
         padding: 1rem;
@@ -48,11 +38,10 @@ footer {
         padding: 1rem;
         text-align: left;
         opacity: .5;
-        font-family: 'Helvetica Neue';
-        font-weight: 200;
+        font-weight: 300;
 
         a {
-            font-weight: 200;
+            font-weight: 300;
             color: $primary;
             text-decoration: none;
             border-right: .0313rem solid #ced4da;
