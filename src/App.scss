@@ -9,9 +9,17 @@ body {
     min-width: 30rem;
     background-color: #0B0B0F;
     text-align: left;
+    // background-image: linear-gradient(0deg, #0b0c0f 0, #0000), url('https://images.aeonmedia.co/images/a370f39a-f14f-4608-9ff5-660e1311cac4/The-Death-of-Socrates-MAIN.jpg');
+    // background-repeat: no-repeat;
+    // background-position: 50%;
+    // background-size: cover;
 }
 
 main {
+    .next-qoute {
+        opacity: .5;
+    }
+
     h1 {
         font-weight: 100;
         font-size: 30px;
@@ -29,16 +37,7 @@ main {
 }
 
 footer {
-    button {
-        background-color: transparent;
-        border: 0px;
-        color: $primary;
-        cursor: pointer;
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 10px 10px 0px 0px;
-    }
+    opacity: .5;
 
     .legal {
         border-top: .0313rem solid hsla(330, 9%, 96%, .102);
@@ -83,13 +82,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-#react-chrome-app {
-    // background-image: linear-gradient(0deg, #0b0c0f 0, #0000), url('https://images.aeonmedia.co/images/a370f39a-f14f-4608-9ff5-660e1311cac4/The-Death-of-Socrates-MAIN.jpg');
-    // background-repeat: no-repeat;
-    // background-position: 50%;
-    // background-size: cover;
 }
 
 .error {
