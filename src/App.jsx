@@ -162,7 +162,6 @@ export default function App() {
           <footer>
             <div className='legal'>
               <div>
-                <a href='https://go.skuflic.com/terms' target='_blank' rel='noreferrer'>Terms of Use</a>
                 <a href='https://go.skuflic.com/servicesagreement' target='_blank' rel='noreferrer'>Services Agreement</a>
                 <a href='https://go.skuflic.com/privacy' target='_blank' rel='noreferrer'>Privacy Policy</a>
                 <a href='https://go.skuflic.com/report-a-bug' target='_blank' rel='noreferrer'>Bug Report</a>
