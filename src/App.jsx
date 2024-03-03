@@ -90,19 +90,16 @@ export default function App() {
     }
   };
 
-
   const formatTimeRemaining = (timeInSeconds) => {
     const hours = Math.floor(timeInSeconds / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
     const seconds = timeInSeconds % 60;
     return `
-    
-    ${hours} ${pluralize('hour', hours)}
-    
-    ${minutes} ${pluralize('minute', minutes)}
-    
+    ${hours !== 0 ? `${hours} ${pluralize('hour', hours)}` : ''}
+    ${minutes !== 0 ? `${minutes} ${pluralize('minute', minutes)}` : ''}
     ${seconds} ${pluralize('second', seconds)}`;
   };
+
 
   // Fetch random quote on component mount
   const [isInitialRender, setIsInitialRender] = useState(true);
@@ -164,8 +161,6 @@ export default function App() {
               <div>
                 <a href='https://go.skuflic.com/servicesagreement' target='_blank' rel='noreferrer'>Services Agreement</a>
                 <a href='https://go.skuflic.com/privacy' target='_blank' rel='noreferrer'>Privacy Policy</a>
-                <a href='https://go.skuflic.com/report-a-bug' target='_blank' rel='noreferrer'>Bug Report</a>
-                <a href='https://go.skuflic.com/status' target='_blank' rel='noreferrer'>System Status</a>
               </div>
               <p>TM and Copyright &copy; {new Date().getFullYear()} Skuflic.com. All rights reserved.</p>
             </div>
