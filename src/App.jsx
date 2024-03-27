@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
 import './App.scss';
+import React, { useEffect, useState } from 'react';
 import Loading from './loading.svg';
 import pluralize from 'pluralize';
 
@@ -8,7 +8,26 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(0); // State to hold remaining time until next quote refresh
+  const [timeRemaining, setTimeRemaining] = useState(null);
+
+  const [darkTheme, setDarkTheme] = useState(false);
+
+  // Function to set initial theme based on localStorage
+  useEffect(() => {
+    const storedTheme = localStorage.getItem('darkTheme');
+    if (storedTheme !== null) {
+      setDarkTheme(JSON.parse(storedTheme));
+    }
+  }, []); // Empty dependency array ensures this effect runs only once on component mount
+
+  // Function to toggle theme
+  const toggleTheme = () => {
+    setDarkTheme(prevDarkTheme => {
+      const newDarkTheme = !prevDarkTheme;
+      localStorage.setItem('darkTheme', JSON.stringify(newDarkTheme)); // Update localStorage
+      return newDarkTheme;
+    });
+  };
 
   const storecurrentQuoteInLocalStorage = (quoteObject) => {
     const currentTime = Math.floor(Date.now() / 1000); // Get current Unix timestamp in seconds
@@ -22,13 +41,12 @@ export default function App() {
     localStorage.setItem('currentQuote', JSON.stringify(dataToStore));
   };
 
-
   // Function to fetch data based on ID
   const fetchData = async (id) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`https://api.learn.skuflic.com/stoic/${id}`);
+      const response = await fetch(`https://api.edu.skuflic.com/stoic/${id}`);
       const result = await response.json();
       setData(result);
       storecurrentQuoteInLocalStorage(result);
@@ -78,7 +96,6 @@ export default function App() {
     return (currentTime - storedTime) >= millisecondsPerDay;
   };
 
-
   // Function to calculate remaining time until next quote refresh
   const calculateTimeRemaining = () => {
     const storedQuote = JSON.parse(localStorage.getItem('currentQuote'));
@@ -89,6 +106,7 @@ export default function App() {
       setTimeRemaining(remainingTime > 0 ? remainingTime : 0);
     }
   };
+
 
   const formatTimeRemaining = (timeInSeconds) => {
     const hours = Math.floor(timeInSeconds / 3600);
@@ -137,7 +155,7 @@ export default function App() {
 
 
   return (
-    <>
+    <div className={darkTheme ? 'light' : 'dark'}>
       {error ? (
         <div className='error'>
           <h1>Whoopsy daisy</h1>
@@ -150,7 +168,12 @@ export default function App() {
               <div className='loading'><img src={Loading} alt='Loading' /></div>
             ) :
               <main>
-                <p className='next-qoute'>Next quote available in {formatTimeRemaining(timeRemaining)}</p>
+                <div className='theme'>
+                  <span className='material-symbols-outlined' onClick={toggleTheme}>
+                    {darkTheme ? 'dark_mode' : 'light_mode'}
+                  </span>
+                </div>
+                {timeRemaining && <p className='next-qoute'>Next quote available in {formatTimeRemaining(timeRemaining)}</p>}
                 <h1>'{data?.quote}'</h1>
                 <p>— {data?.author}, {data?.year}</p>
               </main>
@@ -167,6 +190,6 @@ export default function App() {
           </footer>
         </>
       )}
-    </>
+    </div>
   );
 }

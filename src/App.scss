@@ -1,14 +1,43 @@
 $primary: #ced4da;
 
-body {
+body,
+html {
     margin: 0;
     padding: 0;
     text-align: center;
-    color: white;
+    color: #efece4;
     font-family: 'Lato', sans-serif;
     min-width: 30rem;
     background-color: #0B0B0F;
     text-align: left;
+}
+
+.light {
+    background-color: #efece4;
+    color: #0B0B0F;
+
+    body {
+        background-color: #efece4;
+    }
+
+    .legal {
+        border-top: .0313rem solid #0b0b0f7f;
+
+        p {
+            color: #0B0B0F;
+        }
+
+        a {
+            color: #0B0B0F;
+            border-right: .0313rem solid #0B0B0F;
+        }
+    }
+}
+
+.theme {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
 }
 
 main {
