@@ -1,5 +1,5 @@
 import './App.scss';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Loading from './loading.svg';
 import pluralize from 'pluralize';
 
@@ -22,7 +22,7 @@ export default function App() {
 
   // Function to toggle theme
   const toggleTheme = () => {
-    setDarkTheme(prevDarkTheme => {
+    setDarkTheme((prevDarkTheme) => {
       const newDarkTheme = !prevDarkTheme;
       localStorage.setItem('darkTheme', JSON.stringify(newDarkTheme)); // Update localStorage
       return newDarkTheme;
@@ -46,19 +46,18 @@ export default function App() {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`https://api.edu.skuflic.com/stoic/${id}`);
+      const response = await fetch(`https://api.skuflic.com/stoic/${id}`);
       const result = await response.json();
       setData(result);
       storecurrentQuoteInLocalStorage(result);
     } catch (error) {
       setError(error);
     } finally {
-
       setTimeout(() => {
         setLoading(false);
       }, '500');
     }
-  }
+  };
 
   // Function to fetch new random quote
   const fetchRandomQuote = () => {
@@ -83,8 +82,7 @@ export default function App() {
     // Update shownQuotes in localStorage
     shownQuotes.push(randomId);
     localStorage.setItem('shownQuotes', JSON.stringify(shownQuotes));
-  }
-
+  };
 
   const isQuoteOlderThan24Hours = (storedTimestamp) => {
     if (!storedTimestamp) return true; // If there's no timestamp, consider it older
@@ -93,7 +91,7 @@ export default function App() {
     const millisecondsPerHour = 3600 * 1000; // 1 hour in milliseconds
     const hoursPerDay = 24;
     const millisecondsPerDay = hoursPerDay * millisecondsPerHour; // 24 hours in milliseconds
-    return (currentTime - storedTime) >= millisecondsPerDay;
+    return currentTime - storedTime >= millisecondsPerDay;
   };
 
   // Function to calculate remaining time until next quote refresh
@@ -107,7 +105,6 @@ export default function App() {
     }
   };
 
-
   const formatTimeRemaining = (timeInSeconds) => {
     const hours = Math.floor(timeInSeconds / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
@@ -117,7 +114,6 @@ export default function App() {
     ${minutes !== 0 ? `${minutes} ${pluralize('minute', minutes)}` : ''}
     ${seconds} ${pluralize('second', seconds)}`;
   };
-
 
   // Fetch random quote on component mount
   const [isInitialRender, setIsInitialRender] = useState(true);
@@ -153,39 +149,63 @@ export default function App() {
     }
   }, [timeRemaining]);
 
-
   return (
     <div className={darkTheme ? 'light' : 'dark'}>
       {error ? (
         <div className='error'>
           <h1>Whoopsy daisy</h1>
-          <p>An unexpected error occurred, please contact support and provide this error message — {error.message.toLowerCase()}.</p>
+          <p>
+            An unexpected error occurred, please contact support and provide
+            this error message — {error.message.toLowerCase()}.
+          </p>
         </div>
       ) : (
         <>
-          {
-            loading ? (
-              <div className='loading'><img src={Loading} alt='Loading' /></div>
-            ) :
-              <main>
-                <div className='theme'>
-                  <span className='material-symbols-outlined' onClick={toggleTheme}>
-                    {darkTheme ? 'dark_mode' : 'light_mode'}
-                  </span>
-                </div>
-                {timeRemaining && <p className='next-qoute'>Next quote available in {formatTimeRemaining(timeRemaining)}</p>}
-                <h1>'{data?.quote}'</h1>
-                <p>— {data?.author}, {data?.year}</p>
-              </main>
-          }
+          {loading ? (
+            <div className='loading'>
+              <img src={Loading} alt='Loading' />
+            </div>
+          ) : (
+            <main>
+              <div className='theme'>
+                <span
+                  className='material-symbols-outlined'
+                  onClick={toggleTheme}>
+                  {darkTheme ? 'dark_mode' : 'light_mode'}
+                </span>
+              </div>
+              {timeRemaining && (
+                <p className='next-qoute'>
+                  Next quote available in {formatTimeRemaining(timeRemaining)}
+                </p>
+              )}
+              <h1>'{data?.quote}'</h1>
+              <p>
+                — {data?.author}, {data?.year}
+              </p>
+            </main>
+          )}
 
           <footer>
             <div className='legal'>
               <div>
-                <a href='https://go.skuflic.com/servicesagreement' target='_blank' rel='noreferrer'>Services Agreement</a>
-                <a href='https://go.skuflic.com/privacy' target='_blank' rel='noreferrer'>Privacy Policy</a>
+                <a
+                  href='https://go.skuflic.com/servicesagreement'
+                  target='_blank'
+                  rel='noreferrer'>
+                  Services Agreement
+                </a>
+                <a
+                  href='https://go.skuflic.com/privacy'
+                  target='_blank'
+                  rel='noreferrer'>
+                  Privacy Policy
+                </a>
               </div>
-              <p>TM and Copyright &copy; {new Date().getFullYear()} Skuflic.com. All rights reserved.</p>
+              <p>
+                TM and Copyright &copy; {new Date().getFullYear()} Skuflic.com.
+                All rights reserved.
+              </p>
             </div>
           </footer>
         </>
