@@ -1,40 +1,28 @@
 {
   "name": "stoic",
-  "version": "2.1.0",
+  "description": "A daily quote from Marcus Aurelius, Seneca and Epictetus, with a quiet place to reflect.",
+  "version": "3.0.0",
   "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "pluralize": "^8.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "sass": "^1.71.1",
-    "web-vitals": "^2.1.4"
-  },
+  "type": "module",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "wxt",
+    "dev:firefox": "wxt -b firefox",
+    "build": "wxt build",
+    "build:firefox": "wxt build -b firefox",
+    "zip": "wxt zip",
+    "zip:edge": "wxt zip -b edge",
+    "zip:firefox": "wxt zip -b firefox",
+    "zip:all": "wxt zip && wxt zip -b edge && wxt zip -b firefox",
+    "postinstall": "wxt prepare"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "@fontsource-variable/funnel-display": "^5.3.0",
+    "@fontsource-variable/funnel-sans": "^5.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "devDependencies": {
+    "@wxt-dev/module-react": "^1.2.2",
+    "wxt": "^0.21.5"
   }
 }
